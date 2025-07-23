@@ -1,0 +1,91 @@
+.briefingContainer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+  color: #fff;
+  background-color: #121212;
+}
+
+.briefingHeader {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.dateText {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.briefingContent {
+  display: flex;
+  gap: 2rem;
+}
+
+.topStoriesSection {
+  flex: 2;
+}
+
+.topStoriesWrapper {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.featuredStory {
+  flex: 1;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0.75rem;
+}
+
+.featuredImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.featuredHeadline {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #fff;
+}
+
+.storyList {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.storyItem {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.sidebarSection {
+  flex: 1;
+}
+
+.sidebarBlock {
+  margin-bottom: 2rem;
+}
+
+.newsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.newsList li {
+  margin-bottom: 1rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}

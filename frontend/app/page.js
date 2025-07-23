@@ -1,93 +1,66 @@
-'use client';
+import styles from './HomePage.module.css';
 
-import { useState } from 'react';
-import './globals.css'; // this ensures the styles apply
-
-export default function Page() {
-  const [products] = useState([
-    {
-      name: 'AMD Ryzen 7 9800X3D',
-      coreCount: 8,
-      clock: '4.7 GHz',
-      boostClock: '5.2 GHz',
-      microarch: 'Zen 5',
-      tdp: '120 W',
-      graphics: 'Radeon',
-      rating: 188,
-      price: '$472.02',
-      image: 'https://via.placeholder.com/40',
-    },
-    {
-      name: 'AMD Ryzen 5 5600X',
-      coreCount: 6,
-      clock: '3.7 GHz',
-      boostClock: '4.6 GHz',
-      microarch: 'Zen 3',
-      tdp: '65 W',
-      graphics: 'None',
-      rating: 691,
-      price: '$129.50',
-      image: 'https://via.placeholder.com/40',
-    },
-  ]);
-
+export default function HomePage() {
   return (
-    <main className="container">
-      <h1>1413 Compatible Products</h1>
+    <main className={styles.briefingContainer}>
+      <header className={styles.briefingHeader}>
+        <h1>Your briefing</h1>
+        <p className={styles.dateText}>Wednesday, July 16</p>
+      </header>
 
-      <div className="controls">
-        <div className="button-group">
-          <button>Select All</button>
-          <button>Select None</button>
-          <button>Compare Selected</button>
-        </div>
-        <div className="search">
-          <input type="text" placeholder="Search CPUs" />
-          <button>Add From Filter</button>
-        </div>
-      </div>
+      <section className={styles.briefingContent}>
+        <div className={styles.topStoriesSection}>
+          <h2>Top stories</h2>
 
-      <div className="table-wrapper">
-        <table className="product-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Core Count</th>
-              <th>Base Clock</th>
-              <th>Boost Clock</th>
-              <th>Microarchitecture</th>
-              <th>TDP</th>
-              <th>Graphics</th>
-              <th>Rating</th>
-              <th>Price</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((cpu, index) => (
-              <tr key={index}>
-                <td><input type="checkbox" /></td>
-                <td>
-                  <div className="product-info">
-                    <img src={cpu.image} alt="CPU" />
-                    <span className="name">{cpu.name}</span>
-                  </div>
-                </td>
-                <td>{cpu.coreCount}</td>
-                <td>{cpu.clock}</td>
-                <td>{cpu.boostClock}</td>
-                <td>{cpu.microarch}</td>
-                <td>{cpu.tdp}</td>
-                <td>{cpu.graphics}</td>
-                <td>⭐ ({cpu.rating})</td>
-                <td>{cpu.price}</td>
-                <td><button className="add-button">Add</button></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          <div className={styles.topStoriesWrapper}>
+            <div className={styles.featuredStory}>
+              <img src="/trump-thumbnail.jpg" alt="Trump" className={styles.featuredImage} />
+              <div className={styles.featuredHeadline}>Trump lashes out at ‘weaklings’ who believe Epstein claims</div>
+              <p className={styles.articleMeta}>1 hour ago • CNN</p>
+            </div>
+
+            <div className={styles.storyList}>
+              <div className={styles.storyItem}>Trump can’t get his base to move on from Epstein – NBC News • 17m ago</div>
+              <div className={styles.storyItem}>Republicans call for transparency in Epstein probe – NPR • 6h ago</div>
+              <div className={styles.storyItem}>Trump criticized for Epstein handling – Washington Post • 30m ago</div>
+            </div>
+          </div>
+
+          <div className={styles.topStoriesWrapper}>
+            <div className={styles.featuredStory}>
+              <img src="/israel-syria.jpg" alt="Israel Syria" className={styles.featuredImage} />
+              <div className={styles.featuredHeadline}>Israel bombs Damascus, all parties agree on 'specific response'</div>
+              <p className={styles.articleMeta}>5 hours ago • Reuters</p>
+            </div>
+
+            <div className={styles.storyList}>
+              <div className={styles.storyItem}>Israel strikes Syria’s capital, pledging to defend Druze – NPR • 8h ago</div>
+              <div className={styles.storyItem}>Why did Israel strike Damascus? – The Economist • 41m ago</div>
+              <div className={styles.storyItem}>New ceasefire announced – AP News • 1h ago</div>
+            </div>
+          </div>
+        </div>
+
+        <aside className={styles.sidebarSection}>
+          <section className={styles.sidebarBlock}>
+            <h3>Local news</h3>
+            <ul className={styles.newsList}>
+              <li><strong>Suspect Charged With Hate Crime At East Bay BART Station</strong><br /><small>22 hours ago • Patch</small></li>
+              <li><strong>Cal-OSHA recommends criminal charges for San Leandro company</strong><br /><small>2 hours ago • KTVU</small></li>
+              <li><strong>Mother arrested in Union City cold case of baby found in dumpster</strong><br /><small>Yesterday • KTVU</small></li>
+            </ul>
+          </section>
+
+          <section className={styles.sidebarBlock}>
+            <h3>Picks for you</h3>
+            <ul className={styles.newsList}>
+              <li><strong>Waymo Vets Are Automating Construction Sites...</strong><br /><small>11 hours ago • Forbes</small></li>
+              <li><strong>Bill Belichick fires back at Robert Kraft’s ‘big risk’ comment</strong><br /><small>6 hours ago • New York Post</small></li>
+              <li><strong>Emmy Nods, ‘Fun’ Facts: Network Dramas Get Back in the Game...</strong><br /><small>21 hours ago • TVLine</small></li>
+            </ul>
+          </section>
+        </aside>
+      </section>
     </main>
   );
 }
