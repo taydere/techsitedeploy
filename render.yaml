@@ -14,6 +14,21 @@ services:
         generateValue: true
       - key: DEBUG
         value: False
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+
+  - type: web
+    name: techsite-frontend
+    env: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
 
 databases:
   - name: techsite-db
