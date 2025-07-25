@@ -17,7 +17,7 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: backend.settings
       - key: PYTHON_VERSION
-        value: 3.11
+        value: 3.11.8
 
   - type: web
     name: techsite-frontend
