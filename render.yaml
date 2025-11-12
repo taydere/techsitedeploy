@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: techsite-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn backend.wsgi:application --chdir backend
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: techsite-db
+          property: connectionString
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      - key: PYTHON_VERSION
+        value: 3.11.8
+
+  - type: web
+    name: techsite-frontend
+    env: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+
+databases:
+  - name: techsite-db
+    databaseName: techsitedb
+    user: techsiteuser
